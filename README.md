@@ -33,7 +33,102 @@ Add following line of code to your module (app) level gradle file:
     implementation 'am.nextidea:bear:<LATEST-VERSION>'
 ```
 
-## Usage:
+## Setup and usage:
+Add BearView in your layout
+
+```xml
+   <am.nextidea.bear.BearView
+        android:id="@+id/customBearView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+   <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="10dp"
+        android:inputType="textEmailAddress"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customBearView" />
+
+```
+Now set up bear view
+```kotlin
+    binding.customBearView.setupView(login)
+```
+## How the app works
+<img src="https://github.com/llcnextidea/bear/tree/main/video/record_2.gif" width="500" />
+
+You can add another password EditText.
+
+In the below login add this 
+```xml
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/pass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:paddingEnd="60dp"
+            android:inputType="textPassword" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/eyeButton"
+            style="?android:buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-60dp"
+            android:src="@drawable/ic_eye_hidden" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+```
+
+Change set up bear view
+```kotlin
+     with(binding) {
+            customBearView.setupView(login,password)
+            eyeButton.setOnClickListener {
+                customBearView.onViewPassword { isVisible ->
+                    if (isVisible) {
+                        eyeButton.setImageDrawable(
+                            ContextCompat.getDrawable(
+                                it.context,
+                                R.drawable.ic_eye_show
+                            )
+                        )
+                    } else {
+                        eyeButton.setImageDrawable(
+                            ContextCompat.getDrawable(
+                                it.context,
+                                R.drawable.ic_eye_hidden
+                            )
+                        )
+                    }
+                }
+                val cursorPosition = binding.password.text?.length ?: 0
+                binding.password.setSelection(cursorPosition)
+            }
+        }
+```
+
+## How the app works
+<img src="https://github.com/llcnextidea/bear/tree/main/video/record.gif" width="500" />
 
 ## Contact
 
@@ -45,20 +140,24 @@ Add following line of code to your module (app) level gradle file:
 ## Licence
 
 ```
-    Permissions Flow©
-    Copyright 20202 Karen Melkonyan
-    Url: https://github.com/llcnextidea/bear
+   Copyright (c) 2022 Karen Melkonyan
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software and associated documentation files (the "Software"), to deal
+   in the Software without restriction, including without limitation the rights
+   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   copies of the Software, and to permit persons to whom the Software is
+   furnished to do so, subject to the following conditions:
 
-    http://www.apache.org/licenses/LICENSE-2.0
+   The above copyright notice and this permission notice shall be included in all
+   copies or substantial portions of the Software.
 
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   SOFTWARE.
 ```
 
