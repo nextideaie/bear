@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="am.nextidea.login.MainActivity">
 
 
-    <com.nextidea.bear.BearView
+    <am.nextidea.bear.BearView
         android:id="@+id/customBearView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,7 +34,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="80dp"
         android:layout_marginTop="10dp"
-
         android:orientation="horizontal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -45,7 +44,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
-
             android:paddingEnd="60dp"
             android:inputType="textPassword" />
 
@@ -58,13 +56,5 @@
             android:src="@drawable/ic_eye_hidden" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <ImageSwitcher
-        android:id="@+id/slide_trans_imageswitcher"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
