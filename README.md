@@ -24,7 +24,7 @@ allprojects {
 Add following line of code to your module (app) level gradle file:
 
 ```groovy
-    implementation ''am.nextidea:bear:<LATEST-VERSION>'
+    implementation 'am.nextidea:bear:<LATEST-VERSION>'
 ```
 
 #### Kotlin:
@@ -62,10 +62,12 @@ Now set up bear view
 ```kotlin
     binding.customBearView.setupView(login)
 ```
-## How the app works
-<img src="https://github.com/llcnextidea/bear/tree/main/video/record_2.gif" width="500" />
+## What are you showing
+<img src="https://github.com/llcnextidea/bear/tree/main/video/record_2.gif" />
 
-You can add another password EditText.
+Now we are making more interesting:
+
+Add password EditText:
 
 In the below login add this 
 ```xml
