@@ -63,7 +63,7 @@ Now set up bear view
     binding.customBearView.setupView(login)
 ```
 ## What are you showing
-<img src="https://github.com/llcnextidea/bear/tree/main/video/record_2.gif" />
+<img src="[https://github.com/llcnextidea/bear/tree/main/video/record_2.gif](https://github.com/llcnextidea/bear/blob/main/video/record.gif)" />
 
 Now we are making more interesting:
 
