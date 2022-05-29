@@ -60,12 +60,25 @@ Add BearView in your layout
 ```
 Now set up bear view
 ```kotlin
-    binding.customBearView.setupView(login)
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        with(binding) {
+            customBearView.setupView(login)
+        }
+    }
+}
 ```
 
-## What are you showing
+## What are you showing ))))
 
-<img src="https://github.com/llcnextidea/bear/blob/main/video/record_2.gif" width="500" />
+<img src="https://github.com/llcnextidea/bear/blob/main/video/record_2.gif" width="250" />
 
 Now we are making more interesting:
 
@@ -105,7 +118,16 @@ In the below login add this
 
 Change set up bear view
 ```kotlin
-     with(binding) {
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        with(binding) {
             customBearView.setupView(login,password)
             eyeButton.setOnClickListener {
                 customBearView.onViewPassword { isVisible ->
@@ -129,10 +151,12 @@ Change set up bear view
                 binding.password.setSelection(cursorPosition)
             }
         }
+    }
+}
 ```
 
 ## How the app works
-<img src="https://github.com/llcnextidea/bear/blob/main/video/record.gif" width="500" />
+<img src="https://github.com/llcnextidea/bear/blob/main/video/record.gif" width="250" />
 
 ## Contact
 
