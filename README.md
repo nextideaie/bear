@@ -62,8 +62,10 @@ Now set up bear view
 ```kotlin
     binding.customBearView.setupView(login)
 ```
+
 ## What are you showing
-<img src="[https://github.com/llcnextidea/bear/tree/main/video/record_2.gif](https://github.com/llcnextidea/bear/blob/main/video/record.gif)" />
+
+<img src="https://github.com/llcnextidea/bear/blob/main/video/record_2.gif" width="500" />
 
 Now we are making more interesting:
 
@@ -130,7 +132,7 @@ Change set up bear view
 ```
 
 ## How the app works
-<img src="https://github.com/llcnextidea/bear/tree/main/video/record.gif" width="500" />
+<img src="https://github.com/llcnextidea/bear/blob/main/video/record.gif" width="500" />
 
 ## Contact
 
